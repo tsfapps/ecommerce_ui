@@ -357,7 +357,6 @@ public class MainActivity extends AppCompatActivity
                 break;
             case R.id.nav_help:
                 String urlhelp = "https://www.videlo.com.my/contact/";
-
                 Intent intent = new Intent(MainActivity.this, VideloActivity.class);
                 Bundle bun = new Bundle();
                 bun.putString(CART_URL, urlhelp);
