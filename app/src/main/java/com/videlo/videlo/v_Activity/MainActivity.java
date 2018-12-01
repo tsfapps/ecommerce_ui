@@ -1,6 +1,9 @@
 package com.videlo.videlo.v_Activity;
 
 import android.annotation.SuppressLint;
+import android.app.SearchManager;
+import android.app.SearchableInfo;
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
@@ -16,6 +19,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.SearchView;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -57,6 +61,7 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
     private String CART_URL = "base_url";
+    private SearchView searchView;
     //TabLayout
     TabLayout myTab;
     ViewPager myViewPager;
@@ -78,6 +83,8 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
         displayFragment(new Fragment());
         myTab = findViewById(R.id.view);
+
+
 
         myViewPager = findViewById(R.id.mypager);
         myViewPager.setAdapter(new MyOwnPagerAdapter(getSupportFragmentManager()));
@@ -307,6 +314,11 @@ public class MainActivity extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
+
+     /*   SearchManager searchManager =
+                (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        SearchableInfo searchableInfo = searchManager.getSearchableInfo(getComponentName());
+        searchView.setSearchableInfo(searchableInfo);*/
         return true;
     }
 
