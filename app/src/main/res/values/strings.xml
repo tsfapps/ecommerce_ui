@@ -1,0 +1,57 @@
+<resources>
+    <string name="app_name">Videlo</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="email">Email Id</string>
+    <string name="passowrd">Password</string>
+    <string name="login">LOGIN</string>
+    <string name="show_pwd">Show Password</string>
+    <string name="hide_pwd">Hide Password</string>
+    <string name="forgot">Forgot password?</string>
+    <string name="closebutton">Close Button for Activity</string>
+    <string name="newUser">Not a Member yet? Sign Up here.</string>
+    <string name="fullName">Full Name</string>
+    <string name="mobileNumber">Mobile Number</string>
+    <string name="location">Location</string>
+    <string name="confirmPassword">Confirm Password</string>
+    <string name="terms_conditions">By clicking SignUp you agree all the Terms and Conditions.</string>
+    <string name="signUp">SIGN UP</string>
+    <string name="already_user">Already have Account? Login here.</string>
+    <string name="registered_emailid">Please enter your Registered Email Id below:</string>
+    <string name="submit">SUBMIT</string>
+    <string name="back">BACK</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="consumer_electronics">Consumer Electronics</string>
+    <string name="men_s_apparel">Men’s Apparel</string>
+    <string name="women_s_apparel">Women’s Apparel</string>
+    <string name="home_garden_and_pets">Home, Garden and Pets</string>
+    <string name="home_appliances">Home appliances</string>
+    <string name="personal_care_and_beauty">Personal care and Beauty</string>
+    <string name="jewellery">Jewellery</string>
+    <string name="watches">Watches</string>
+    <string name="bags_wallets_and_shoes">Bags, Wallets and Shoes</string>
+    <string name="computers_and_technologies">Computers and Technologies</string>
+    <string name="babies_toys_and_kids">Babies, Toys and Kids</string>
+    <string name="sports_and_outdoors">Sports and Outdoors</string>
+    <string name="phone_and_accessories">Phone and Accessories</string>
+    <string name="books_games_and_entertainment">Books, Games and Entertainment</string>
+    <string name="office_and_security">Office and Security</string>
+    <string name="automobiles_and_motorcycles">Automobiles and Motorcycles</string>
+    <string name="home">Home</string>
+    <string name="electronics">Electronics</string>
+    <string name="agriculture_and_food">Agriculture and Food</string>
+    <string name="machinery_hardware_and_tools">Machinery, Hardware and Tools</string>
+    <string name="packaging_printing_and_advertising">Packaging, Printing and Advertising</string>
+    <string name="notification">Notification</string>
+    <string name="share">Share</string>
+</resources>

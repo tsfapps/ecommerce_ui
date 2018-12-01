@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+
+
+    <color name="colorPrimary">#0f85ee</color>
+    <color name="colorPrimaryDark">#FF0F85EE</color>
+    <color name="colorAccent">#FF0F85EE</color>
+    <color name="colorAcc">#3f2c93</color>
+    <color name="colorLight">#e9e8ed</color>
+    <color name="colorIndigo">#7240e7</color>
+    <color name="grey_light">#E0E0E0</color>
+    <color name="gen_black">#000000</color>
+    <color name="gen_white">#ffffff</color>
+    <color name="ligh_white">#f1efef</color>
+    <color name="purple">#d902ff</color>
+    <color name="red">#ff0004</color>
+    <color name="background_color">#009688</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="white_greyish">#EEEEEE</color>
+    <color name="button_selectorcolor">#9E9E9E</color>
+    <color name="megnet">#14f9a5</color>
+    <color name="bhagwa">#f28704</color>
+
+</resources>
