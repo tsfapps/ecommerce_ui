@@ -1,5 +1,6 @@
 package com.videlo.videlo.v_Fragment;
 
+import android.app.ActionBar;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
@@ -88,6 +89,9 @@ public class HomeFragment extends Fragment implements AdapterHome.OnHomeClkListe
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+
         setHasOptionsMenu(true);
     }
 
@@ -96,6 +100,8 @@ public class HomeFragment extends Fragment implements AdapterHome.OnHomeClkListe
                              Bundle savedInstanceState) {
 
         return inflater.inflate(R.layout.fragment_home, container, false);
+
+
 
     }
 
