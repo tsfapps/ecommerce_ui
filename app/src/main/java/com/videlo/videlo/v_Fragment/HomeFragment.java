@@ -1,5 +1,7 @@
 package com.videlo.videlo.v_Fragment;
 
+import android.app.SearchManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -8,13 +10,18 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 
@@ -42,6 +49,7 @@ import me.relex.circleindicator.CircleIndicator;
 public class HomeFragment extends Fragment implements AdapterHome.OnHomeClkListener,AdapterHomeTwo.ProdictClick {
     private String HOME_URL = "base_url";
     private String homeUrl = "https://videlo.com.my/";
+
 
     //Slider Declarartion
     private static ViewPager mPager;
@@ -93,6 +101,9 @@ public class HomeFragment extends Fragment implements AdapterHome.OnHomeClkListe
 
         recyclerView = view.findViewById(R.id.rcv);
         recyclerViewTwo = view.findViewById(R.id.rcvTwo);
+
+
+
         mPager = view.findViewById(R.id.viewpgr);
         indicator = view.findViewById(R.id.indicator);
         appBarLayout = view.findViewById(R.id.appbar);
@@ -261,6 +272,43 @@ public class HomeFragment extends Fragment implements AdapterHome.OnHomeClkListe
         }
         adapterHome.notifyDataSetChanged();
     }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+
+
+        getActivity().getMenuInflater().inflate(R.menu.main, menu);
+        SearchManager searchManager = (SearchManager) getActivity().getSystemService(Context.SEARCH_SERVICE);
+       SearchView searchView = (SearchView) menu.findItem(R.id.search).getActionView();
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(getActivity().getComponentName()));
+        searchView.setMaxWidth(Integer.MAX_VALUE);
+        // listening to search query text change
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                // filter recycler view when query submitted
+                return false;
+            }
+            @Override
+            public boolean onQueryTextChange(String textList) {
+                textList = textList.toLowerCase();
+                List<ModelHomeTwo> myList = new ArrayList<>();
+                for (ModelHomeTwo model : modelHomeTwos){
+                    String prd_name = model.getName().toLowerCase();
+                    if (prd_name.contains(textList)){
+                        myList.add(model);
+                    }
+                }
+                adapterHomeTwo.filterItem(myList);
+                return false;
+            }
+        });
+
+
+    }
+
+
 
 
     //recyclerviewtwo

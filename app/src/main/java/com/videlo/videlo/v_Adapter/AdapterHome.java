@@ -6,6 +6,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -13,12 +15,14 @@ import com.bumptech.glide.Glide;
 import com.videlo.videlo.R;
 import com.videlo.videlo.v_model.ModelHome;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AdapterHome extends RecyclerView.Adapter<AdapterHome.HomeViewHolder> {
 
     private Context context;
     private List<ModelHome> modelHomes;
+
     private OnHomeClkListener tOnHomeClkListener;
 
 
@@ -26,13 +30,15 @@ public class AdapterHome extends RecyclerView.Adapter<AdapterHome.HomeViewHolder
 
         this.context = context;
         this.modelHomes = modelHomes;
+
     }
 
-    public interface OnHomeClkListener{
+
+    public interface OnHomeClkListener {
         public void OnClkHome(int pos);
     }
 
-    public void setOnHomeClkListener(OnHomeClkListener onHomeClkListener){
+    public void setOnHomeClkListener(OnHomeClkListener onHomeClkListener) {
         tOnHomeClkListener = onHomeClkListener;
     }
 
@@ -62,6 +68,7 @@ public class AdapterHome extends RecyclerView.Adapter<AdapterHome.HomeViewHolder
         return modelHomes.size();
     }
 
+
     public class HomeViewHolder extends RecyclerView.ViewHolder {
 
         private TextView textView;
@@ -76,9 +83,9 @@ public class AdapterHome extends RecyclerView.Adapter<AdapterHome.HomeViewHolder
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (tOnHomeClkListener != null){
+                    if (tOnHomeClkListener != null) {
                         int position = getAdapterPosition();
-                        if (position != RecyclerView.NO_POSITION){
+                        if (position != RecyclerView.NO_POSITION) {
                             tOnHomeClkListener.OnClkHome(position);
                         }
 
@@ -87,6 +94,11 @@ public class AdapterHome extends RecyclerView.Adapter<AdapterHome.HomeViewHolder
             });
 
         }
+    }
+    public void filterItem(List<ModelHome> newList){
+        modelHomes = new ArrayList<>();
+        modelHomes.addAll(newList);
+        notifyDataSetChanged();
     }
 
 }

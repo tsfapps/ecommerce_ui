@@ -18,8 +18,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v4.view.ViewPager;
-import android.support.v7.widget.SearchView;
+import android.widget.SearchView;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -35,6 +36,7 @@ import android.widget.Adapter;
 import android.widget.Toast;
 
 import com.videlo.videlo.Storage.SharedPrefManager;
+import com.videlo.videlo.v_Adapter.AdapterHome;
 import com.videlo.videlo.v_Fragment.AgricultureFrag;
 import com.videlo.videlo.v_Fragment.AppliancesFrag;
 import com.videlo.videlo.v_Fragment.AutomobilesFrag;
@@ -56,12 +58,17 @@ import com.videlo.videlo.v_Fragment.PhoneFrag;
 import com.videlo.videlo.v_Fragment.SportsFrag;
 import com.videlo.videlo.v_Fragment.WatchesFrag;
 import com.videlo.videlo.v_Fragment.WomenFrag;
+import com.videlo.videlo.v_model.ModelHome;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
     private String CART_URL = "base_url";
     private SearchView searchView;
+    private AdapterHome adapterHome;
+    private List<ModelHome> homeList;
     //TabLayout
     TabLayout myTab;
     ViewPager myViewPager;
@@ -315,12 +322,9 @@ public class MainActivity extends AppCompatActivity
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
 
-     /*   SearchManager searchManager =
-                (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-        SearchableInfo searchableInfo = searchManager.getSearchableInfo(getComponentName());
-        searchView.setSearchableInfo(searchableInfo);*/
         return true;
     }
+
 
 
     @Override

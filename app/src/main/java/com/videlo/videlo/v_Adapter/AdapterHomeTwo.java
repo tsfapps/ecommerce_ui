@@ -12,8 +12,10 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.videlo.videlo.R;
+import com.videlo.videlo.v_model.ModelHome;
 import com.videlo.videlo.v_model.ModelHomeTwo;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.zip.Inflater;
 
@@ -94,6 +96,12 @@ public class AdapterHomeTwo extends RecyclerView.Adapter<AdapterHomeTwo.MyViewHo
             });
 
         }
+    }
+
+    public void filterItem(List<ModelHomeTwo> newList){
+        modelHomeTwos = new ArrayList<>();
+        modelHomeTwos.addAll(newList);
+        notifyDataSetChanged();
     }
 
 }
