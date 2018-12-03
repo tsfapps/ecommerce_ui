@@ -46,7 +46,7 @@ import me.relex.circleindicator.CircleIndicator;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class HomeFragment extends Fragment implements AdapterHome.OnHomeClkListener,AdapterHomeTwo.ProdictClick {
+public class HomeFragment extends Fragment implements AdapterHome.OnHomeClkListener, AdapterHomeTwo.ProdictClick {
     private String HOME_URL = "base_url";
     private String homeUrl = "https://videlo.com.my/";
 
@@ -85,6 +85,11 @@ public class HomeFragment extends Fragment implements AdapterHome.OnHomeClkListe
         // Required empty public constructor
     }
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -101,7 +106,6 @@ public class HomeFragment extends Fragment implements AdapterHome.OnHomeClkListe
 
         recyclerView = view.findViewById(R.id.rcv);
         recyclerViewTwo = view.findViewById(R.id.rcvTwo);
-
 
 
         mPager = view.findViewById(R.id.viewpgr);
@@ -158,7 +162,7 @@ public class HomeFragment extends Fragment implements AdapterHome.OnHomeClkListe
     private void mainView() {
 
         modelHomes = new ArrayList<>();
-     //   recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
+        //   recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
 
         layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
         recyclerView.setLayoutManager(layoutManager);
@@ -170,19 +174,15 @@ public class HomeFragment extends Fragment implements AdapterHome.OnHomeClkListe
     }
 
 
-
-
-    private void mainViewTwo(){
+    private void mainViewTwo() {
         modelHomeTwos = new ArrayList<>();
-        layoutManagerTwo = new GridLayoutManager(getContext(),2);
+        layoutManagerTwo = new GridLayoutManager(getContext(), 2);
         recyclerViewTwo.setLayoutManager(layoutManagerTwo);
         adapterHomeTwo = new AdapterHomeTwo(modelHomeTwos, getContext());
         recyclerViewTwo.setAdapter(adapterHomeTwo);
         adapterHomeTwo.setOnClikListner(HomeFragment.this);
 
     }
-
-
 
 
     private void initCollapsingToolbar() {
@@ -266,7 +266,7 @@ public class HomeFragment extends Fragment implements AdapterHome.OnHomeClkListe
 
                 };
         ModelHome modelHome;
-        for (int i = 0; i <image.length; i++) {
+        for (int i = 0; i < image.length; i++) {
             modelHome = new ModelHome(title[i], image[i]);
             modelHomes.add(modelHome);
         }
@@ -280,7 +280,7 @@ public class HomeFragment extends Fragment implements AdapterHome.OnHomeClkListe
 
         getActivity().getMenuInflater().inflate(R.menu.main, menu);
         SearchManager searchManager = (SearchManager) getActivity().getSystemService(Context.SEARCH_SERVICE);
-       SearchView searchView = (SearchView) menu.findItem(R.id.search).getActionView();
+        SearchView searchView = (SearchView) menu.findItem(R.id.search).getActionView();
         searchView.setSearchableInfo(searchManager.getSearchableInfo(getActivity().getComponentName()));
         searchView.setMaxWidth(Integer.MAX_VALUE);
         // listening to search query text change
@@ -290,13 +290,14 @@ public class HomeFragment extends Fragment implements AdapterHome.OnHomeClkListe
                 // filter recycler view when query submitted
                 return false;
             }
+
             @Override
             public boolean onQueryTextChange(String textList) {
                 textList = textList.toLowerCase();
                 List<ModelHomeTwo> myList = new ArrayList<>();
-                for (ModelHomeTwo model : modelHomeTwos){
+                for (ModelHomeTwo model : modelHomeTwos) {
                     String prd_name = model.getName().toLowerCase();
-                    if (prd_name.contains(textList)){
+                    if (prd_name.contains(textList)) {
                         myList.add(model);
                     }
                 }
@@ -306,12 +307,16 @@ public class HomeFragment extends Fragment implements AdapterHome.OnHomeClkListe
         });
 
 
+
     }
 
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        return super.onOptionsItemSelected(item);
+    }
 
-
-    //recyclerviewtwo
+//recyclerviewtwo
 
 
     public void homePageDisplayTwo() {
@@ -363,27 +368,12 @@ public class HomeFragment extends Fragment implements AdapterHome.OnHomeClkListe
 
                 };
         ModelHomeTwo modelHomeTwo;
-        for (int i = 0; i <image.length; i++) {
+        for (int i = 0; i < image.length; i++) {
             modelHomeTwo = new ModelHomeTwo(title[i], image[i]);
             modelHomeTwos.add(modelHomeTwo);
         }
         adapterHomeTwo.notifyDataSetChanged();
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     @Override

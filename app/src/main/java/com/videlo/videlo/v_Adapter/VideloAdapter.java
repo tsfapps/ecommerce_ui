@@ -11,8 +11,10 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.videlo.videlo.R;
+import com.videlo.videlo.v_model.ModelHomeTwo;
 import com.videlo.videlo.v_model.VideloModel;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class VideloAdapter extends RecyclerView.Adapter<VideloAdapter.MyViewHolder> {
@@ -85,4 +87,11 @@ public class VideloAdapter extends RecyclerView.Adapter<VideloAdapter.MyViewHold
             });
         }
     }
+
+    public void filterItem(List<VideloModel> newList){
+        videloModels = new ArrayList<>();
+        videloModels.addAll(newList);
+        notifyDataSetChanged();
+    }
+
 }
