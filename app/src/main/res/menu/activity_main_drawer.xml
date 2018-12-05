@@ -103,6 +103,12 @@
             android:title="My Account" />
 
         <item
+            android:id="@+id/nav_my_order"
+            android:icon="@drawable/ic_shopping_basket_black_24dp"
+            android:title="My Order" />
+
+
+        <item
             android:id="@+id/nav_help"
             android:icon="@drawable/ic_live_help_black_24dp"
             android:title="Help Center" />

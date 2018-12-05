@@ -47,12 +47,6 @@ public class AgricultureFrag extends Fragment implements VideloAdapter.OnItmCick
     private List<VideloModel> videloModelList;
 
 
-
-
-
-
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -66,14 +60,14 @@ public class AgricultureFrag extends Fragment implements VideloAdapter.OnItmCick
         super.onViewCreated(view, savedInstanceState);
 
         recyclerView = view.findViewById(R.id.recyclerViewMain);
-        layoutManager = new GridLayoutManager(getContext(),2);
+        layoutManager = new GridLayoutManager(getContext(), 2);
         recyclerView.setLayoutManager(layoutManager);
 
-        agricultureShow ();
+        agricultureShow();
 
     }
 
-    public void agricultureShow (){
+    public void agricultureShow() {
 
         Api api = ApiClient.getApiClient().create(Api.class);
         Call<List<VideloModel>> listCall = api.getAgriculture();
@@ -82,16 +76,16 @@ public class AgricultureFrag extends Fragment implements VideloAdapter.OnItmCick
             @Override
             public void onResponse(Call<List<VideloModel>> call, Response<List<VideloModel>> response) {
 
-             videloModelList = response.body();
-             videloAdapter = new VideloAdapter(getContext(), videloModelList);
-             recyclerView.setAdapter(videloAdapter);
-             videloAdapter.setOnItmClkListener(AgricultureFrag.this);
+                videloModelList = response.body();
+                videloAdapter = new VideloAdapter(getContext(), videloModelList);
+                recyclerView.setAdapter(videloAdapter);
+                videloAdapter.setOnItmClkListener(AgricultureFrag.this);
             }
 
             @Override
             public void onFailure(Call<List<VideloModel>> call, Throwable t) {
 
-                Toast.makeText(getContext(),"faill",Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(), "faill", Toast.LENGTH_LONG).show();
 
             }
         });
@@ -116,13 +110,12 @@ public class AgricultureFrag extends Fragment implements VideloAdapter.OnItmCick
     }
 
 
-
-
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
     }
+
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
@@ -155,7 +148,6 @@ public class AgricultureFrag extends Fragment implements VideloAdapter.OnItmCick
                 return false;
             }
         });
-
 
 
     }

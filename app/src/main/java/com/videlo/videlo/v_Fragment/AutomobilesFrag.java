@@ -49,17 +49,11 @@ public class AutomobilesFrag extends Fragment implements VideloAdapter.OnItmCick
     private String urlLink;
 
 
-
-
-
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_main, container, false);
-
 
 
     }
@@ -71,7 +65,7 @@ public class AutomobilesFrag extends Fragment implements VideloAdapter.OnItmCick
 
         recyclerView = view.findViewById(R.id.recyclerViewMain);
         recyclerView = view.findViewById(R.id.recyclerViewMain);
-        layoutManager = new GridLayoutManager(getContext(),2);
+        layoutManager = new GridLayoutManager(getContext(), 2);
         recyclerView.setLayoutManager(layoutManager);
         automobile();
 
@@ -79,8 +73,7 @@ public class AutomobilesFrag extends Fragment implements VideloAdapter.OnItmCick
     }
 
 
-
-    public void automobile (){
+    public void automobile() {
 
         Api api = ApiClient.getApiClient().create(Api.class);
         Call<List<VideloModel>> listCall = api.getAutomobile();
@@ -98,7 +91,7 @@ public class AutomobilesFrag extends Fragment implements VideloAdapter.OnItmCick
             @Override
             public void onFailure(Call<List<VideloModel>> call, Throwable t) {
 
-                Toast.makeText(getContext(),"faill",Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(), "faill", Toast.LENGTH_LONG).show();
 
             }
         });
@@ -110,9 +103,9 @@ public class AutomobilesFrag extends Fragment implements VideloAdapter.OnItmCick
     public void OnItmClk(int pos) {
         VideloModel getItemClicked = videloModelList.get(pos);
 
-        Intent i = new Intent(getContext(),VideloActivity.class);
+        Intent i = new Intent(getContext(), VideloActivity.class);
         Bundle bundle = new Bundle();
-        bundle.putString(BASE_URL,getItemClicked.getUrl());
+        bundle.putString(BASE_URL, getItemClicked.getUrl());
         i.putExtras(bundle);
         startActivity(i);
 
@@ -123,6 +116,7 @@ public class AutomobilesFrag extends Fragment implements VideloAdapter.OnItmCick
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
     }
+
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
@@ -155,7 +149,6 @@ public class AutomobilesFrag extends Fragment implements VideloAdapter.OnItmCick
                 return false;
             }
         });
-
 
 
     }

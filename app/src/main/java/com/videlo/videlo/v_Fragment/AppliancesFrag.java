@@ -51,16 +51,6 @@ public class AppliancesFrag extends Fragment implements VideloAdapter.OnItmCickL
     private String urlLink;
 
 
-
-
-
-
-
-
-
-
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -74,14 +64,14 @@ public class AppliancesFrag extends Fragment implements VideloAdapter.OnItmCickL
         super.onViewCreated(view, savedInstanceState);
 
         recyclerView = view.findViewById(R.id.recyclerViewMain);
-        layoutManager = new GridLayoutManager(getContext(),2);
+        layoutManager = new GridLayoutManager(getContext(), 2);
         recyclerView.setLayoutManager(layoutManager);
         appliancesShow();
-        Toast.makeText(getContext(),"Welcome",Toast.LENGTH_LONG).show();
+        Toast.makeText(getContext(), "Welcome", Toast.LENGTH_LONG).show();
 
     }
 
-    public void appliancesShow (){
+    public void appliancesShow() {
 
         Api api = ApiClient.getApiClient().create(Api.class);
         Call<List<VideloModel>> listCall = api.getAppliances();
@@ -99,17 +89,19 @@ public class AppliancesFrag extends Fragment implements VideloAdapter.OnItmCickL
             @Override
             public void onFailure(Call<List<VideloModel>> call, Throwable t) {
 
-                Toast.makeText(getContext(),"faill",Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(), "faill", Toast.LENGTH_LONG).show();
 
             }
         });
 
     }
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
     }
+
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
@@ -142,7 +134,6 @@ public class AppliancesFrag extends Fragment implements VideloAdapter.OnItmCickL
                 return false;
             }
         });
-
 
 
     }

@@ -319,9 +319,6 @@ public class MainActivity extends AppCompatActivity
 
 
 
-
-
-
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -330,11 +327,11 @@ public class MainActivity extends AppCompatActivity
             case R.id.nav_wishlist:
 
                 String url = "https://www.videlo.com.my/wishlist/";
-                Intent i = new Intent(MainActivity.this, VideloActivity.class);
+                Intent intent4 = new Intent(MainActivity.this, VideloActivity.class);
                 Bundle bundle = new Bundle();
                 bundle.putString(CART_URL, url);
-                i.putExtras(bundle);
-                startActivity(i);
+                intent4.putExtras(bundle);
+                startActivity(intent4);
                 break;
 
             case R.id.nav_my_account:
@@ -345,6 +342,17 @@ public class MainActivity extends AppCompatActivity
                 b.putString(CART_URL, urlacc);
                 j.putExtras(b);
                 startActivity(j);
+
+
+
+            case R.id.nav_my_order:
+                String urlord = "https://www.videlo.com.my/my-account/orders/";
+
+                Intent o = new Intent(MainActivity.this, VideloActivity.class);
+                Bundle bundle4 = new Bundle();
+                bundle4.putString(CART_URL, urlord);
+                o.putExtras(bundle4);
+                startActivity(o);
 
                 break;
             case R.id.nav_help:

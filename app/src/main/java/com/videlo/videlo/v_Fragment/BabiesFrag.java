@@ -48,11 +48,6 @@ public class BabiesFrag extends Fragment implements VideloAdapter.OnItmCickListe
     private String urlLink;
 
 
-
-
-
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -67,7 +62,7 @@ public class BabiesFrag extends Fragment implements VideloAdapter.OnItmCickListe
 
         recyclerView = view.findViewById(R.id.recyclerViewMain);
         recyclerView = view.findViewById(R.id.recyclerViewMain);
-        layoutManager = new GridLayoutManager(getContext(),2);
+        layoutManager = new GridLayoutManager(getContext(), 2);
         recyclerView.setLayoutManager(layoutManager);
 
 
@@ -75,7 +70,7 @@ public class BabiesFrag extends Fragment implements VideloAdapter.OnItmCickListe
     }
 
 
-    public void babies(){
+    public void babies() {
 
         Api api = ApiClient.getApiClient().create(Api.class);
         Call<List<VideloModel>> listCall = api.getBabies();
@@ -93,7 +88,7 @@ public class BabiesFrag extends Fragment implements VideloAdapter.OnItmCickListe
             @Override
             public void onFailure(Call<List<VideloModel>> call, Throwable t) {
 
-                Toast.makeText(getContext(),"faill",Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(), "faill", Toast.LENGTH_LONG).show();
 
             }
         });
@@ -101,20 +96,15 @@ public class BabiesFrag extends Fragment implements VideloAdapter.OnItmCickListe
     }
 
 
-
-
-
-
     @Override
     public void OnItmClk(int pos) {
         VideloModel getItemClicked = videloModelList.get(pos);
-        Intent babies = new Intent(getContext(),VideloActivity.class);
+        Intent babies = new Intent(getContext(), VideloActivity.class);
         Bundle b = new Bundle();
-        b.putString(BASE_URL,getItemClicked.getUrl());
+        b.putString(BASE_URL, getItemClicked.getUrl());
         babies.putExtras(b);
         startActivity(babies);
     }
-
 
 
     @Override
@@ -122,6 +112,7 @@ public class BabiesFrag extends Fragment implements VideloAdapter.OnItmCickListe
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
     }
+
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
@@ -154,7 +145,6 @@ public class BabiesFrag extends Fragment implements VideloAdapter.OnItmCickListe
                 return false;
             }
         });
-
 
 
     }
