@@ -53,7 +53,7 @@ public class BooksFrag extends Fragment implements VideloAdapter.OnItmCickListen
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_main, container, false);
+        return inflater.inflate(R.layout.book_frag, container, false);
     }
 
 

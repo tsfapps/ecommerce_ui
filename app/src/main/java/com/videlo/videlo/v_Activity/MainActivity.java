@@ -1,24 +1,16 @@
 package com.videlo.videlo.v_Activity;
 
 import android.annotation.SuppressLint;
-import android.app.SearchManager;
-import android.app.SearchableInfo;
-import android.content.Context;
 import android.content.Intent;
-import android.content.res.ColorStateList;
-import android.graphics.Color;
 import android.graphics.PorterDuff;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.view.MenuItemCompat;
 import android.support.v4.view.ViewPager;
 import android.widget.SearchView;
 import android.view.View;
@@ -28,17 +20,13 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
-import android.widget.Adapter;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import com.videlo.videlo.Storage.SharedPrefManager;
 import com.videlo.videlo.v_Adapter.AdapterHome;
 import com.videlo.videlo.v_Fragment.AgricultureFrag;
-import com.videlo.videlo.v_Fragment.AppliancesFrag;
+import com.videlo.videlo.v_Fragment.ElectronicsFrag;
 import com.videlo.videlo.v_Fragment.AutomobilesFrag;
 import com.videlo.videlo.v_Fragment.BabiesFrag;
 import com.videlo.videlo.v_Fragment.BagsFrag;
@@ -69,6 +57,7 @@ public class MainActivity extends AppCompatActivity
     private SearchView searchView;
     private AdapterHome adapterHome;
     private List<ModelHome> homeList;
+   public TextView textViewMain;
     //TabLayout
     TabLayout myTab;
     ViewPager myViewPager;
@@ -89,15 +78,14 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         displayFragment(new Fragment());
+
+        textViewMain = findViewById(R.id.mainText);
         myTab = findViewById(R.id.view);
-
-
-
         myViewPager = findViewById(R.id.mypager);
         myViewPager.setAdapter(new MyOwnPagerAdapter(getSupportFragmentManager()));
         myTab.setupWithViewPager(myViewPager);
 
-        myTab.setSelectedTabIndicatorHeight(8);
+        myTab.setSelectedTabIndicatorHeight(4);
         myTab.setTabTextColors(
                 getResources().getColor(R.color.gen_white),
                 getResources().getColor(R.color.black));
@@ -109,7 +97,7 @@ public class MainActivity extends AppCompatActivity
         //int tabIconColor = ContextCompat.getColor(getApplicationContext(), R.color.white);
         //  myTab.setTabIconTint(ColorStateList.valueOf(R.color.white));
         myTab.setSelectedTabIndicatorColor(R.color.white);
-        myTab.setSelectedTabIndicatorHeight(15);
+        myTab.setSelectedTabIndicatorHeight(5);
 
         // int tabIconColor = ContextCompat.getColor(getApplicationContext(), R.color.white);
         // myTab.setTabIconTint(setColorFilter(tabIconColor, PorterDuff.Mode.SRC_IN));
@@ -184,8 +172,8 @@ public class MainActivity extends AppCompatActivity
 
     class MyOwnPagerAdapter extends FragmentPagerAdapter {
 
-        String data[] = {getString(R.string.home), "Electronics", "Men's", "Women's", "Garden and Pets ",
-                "Home Appliance", "Beauty Care", "Jewellery", "watches", "Bags and Shoes", "Computer Technology", "Baby Toys Kids",
+        String data[] = {getString(R.string.home), "Electronics", "Men's", "Women's", "Garden & Pets ",
+                "Home Appliance", "Beauty Care", "Jewellery", "watches", "Bags & Shoes", "Computer Tech", "Baby Toys",
                 "Sports", "phone", "Books Game", "Office Security", "Automobile", "Agriculture", "Machinery",
                 "Advertising"};
 
@@ -206,6 +194,7 @@ public class MainActivity extends AppCompatActivity
             if (position == 1) {
 
                 return new ConsumerFrag();
+
             }
             if (position == 2) {
 
@@ -221,7 +210,7 @@ public class MainActivity extends AppCompatActivity
             }
             if (position == 5) {
 
-                return new AppliancesFrag();
+                return new ElectronicsFrag();
             }
             if (position == 6) {
 
@@ -279,13 +268,8 @@ public class MainActivity extends AppCompatActivity
 
                 return new PackagingFrag();
             }
-
             return null;
-
-
-        }
-
-
+            }
         @Override
         public int getCount() {
             return data.length;
@@ -318,7 +302,6 @@ public class MainActivity extends AppCompatActivity
     }
 
 
-
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -336,7 +319,6 @@ public class MainActivity extends AppCompatActivity
 
             case R.id.nav_my_account:
                 String urlacc = "https://www.videlo.com.my/my-account/";
-
                 Intent j = new Intent(MainActivity.this, VideloActivity.class);
                 Bundle b = new Bundle();
                 b.putString(CART_URL, urlacc);
@@ -344,10 +326,8 @@ public class MainActivity extends AppCompatActivity
                 startActivity(j);
 
 
-
             case R.id.nav_my_order:
                 String urlord = "https://www.videlo.com.my/my-account/orders/";
-
                 Intent o = new Intent(MainActivity.this, VideloActivity.class);
                 Bundle bundle4 = new Bundle();
                 bundle4.putString(CART_URL, urlord);
@@ -368,7 +348,6 @@ public class MainActivity extends AppCompatActivity
             case R.id.nav_customer:
 
                 String UrlCus = "https://www.videlo.com.my/";
-
                 Intent intent1 = new Intent(MainActivity.this, VideloActivity.class);
                 Bundle bundle1 = new Bundle();
                 bundle1.putString(CART_URL, UrlCus);
@@ -378,7 +357,7 @@ public class MainActivity extends AppCompatActivity
 
                 break;
             case R.id.nav_settings:
-                String UrlSet = "https://www.videlo.com.my/";
+                String UrlSet = "https://www.videlo.com.my/my-account/";
 
                 Intent intent2 = new Intent(MainActivity.this, VideloActivity.class);
                 Bundle bundle2 = new Bundle();

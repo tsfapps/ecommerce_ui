@@ -24,7 +24,6 @@ import com.videlo.videlo.ApiClient;
 import com.videlo.videlo.R;
 import com.videlo.videlo.v_Activity.VideloActivity;
 import com.videlo.videlo.v_Adapter.VideloAdapter;
-import com.videlo.videlo.v_model.ModelHomeTwo;
 import com.videlo.videlo.v_model.VideloModel;
 
 import java.util.ArrayList;
@@ -38,7 +37,7 @@ import retrofit2.Response;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class AppliancesFrag extends Fragment implements VideloAdapter.OnItmCickListener {
+public class ElectronicsFrag extends Fragment implements VideloAdapter.OnItmCickListener {
 
 
     private static final String BASE_URL = "base_url";
@@ -55,7 +54,7 @@ public class AppliancesFrag extends Fragment implements VideloAdapter.OnItmCickL
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_main, container, false);
+        return inflater.inflate(R.layout.homapp_frag, container, false);
     }
 
 
@@ -83,7 +82,7 @@ public class AppliancesFrag extends Fragment implements VideloAdapter.OnItmCickL
                 videloModelList = response.body();
                 videloAdapter = new VideloAdapter(getContext(), videloModelList);
                 recyclerView.setAdapter(videloAdapter);
-                videloAdapter.setOnItmClkListener(AppliancesFrag.this);
+                videloAdapter.setOnItmClkListener(ElectronicsFrag.this);
             }
 
             @Override

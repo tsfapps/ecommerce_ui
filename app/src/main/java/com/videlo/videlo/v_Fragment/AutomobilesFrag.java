@@ -53,7 +53,7 @@ public class AutomobilesFrag extends Fragment implements VideloAdapter.OnItmCick
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_main, container, false);
+        return inflater.inflate(R.layout.automobile_frag, container, false);
 
 
     }
