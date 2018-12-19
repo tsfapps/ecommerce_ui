@@ -37,7 +37,6 @@ public class AdapterHomeTwo extends RecyclerView.Adapter<AdapterHomeTwo.MyViewHo
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.modeltwo, viewGroup, false);
 
         MyViewHolder myViewHolder = new MyViewHolder(view);
-
         return myViewHolder;
     }
 
