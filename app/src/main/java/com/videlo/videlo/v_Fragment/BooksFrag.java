@@ -70,7 +70,7 @@ public class BooksFrag extends Fragment implements VideloAdapter.OnItmCickListen
     }
 
 
-    public void books(){
+    public void books() {
 
         Api api = ApiClient.getApiClient().create(Api.class);
         Call<List<VideloModel>> listCall = api.getBooks();
@@ -88,7 +88,7 @@ public class BooksFrag extends Fragment implements VideloAdapter.OnItmCickListen
             @Override
             public void onFailure(Call<List<VideloModel>> call, Throwable t) {
 
-                Toast.makeText(getContext(),"faill",Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(), "faill", Toast.LENGTH_LONG).show();
 
             }
         });
@@ -96,17 +96,15 @@ public class BooksFrag extends Fragment implements VideloAdapter.OnItmCickListen
     }
 
 
-
     @Override
     public void OnItmClk(int pos) {
         VideloModel getItemClicked = videloModelList.get(pos);
-        Intent i = new Intent(getContext(),VideloActivity.class);
+        Intent i = new Intent(getContext(), VideloActivity.class);
         Bundle b = new Bundle();
-        b.putString(BASE_URL,getItemClicked.getUrl());
+        b.putString(BASE_URL, getItemClicked.getUrl());
         i.putExtras(b);
         startActivity(i);
     }
-
 
 
     @Override
@@ -114,6 +112,7 @@ public class BooksFrag extends Fragment implements VideloAdapter.OnItmCickListen
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
     }
+
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
@@ -146,7 +145,6 @@ public class BooksFrag extends Fragment implements VideloAdapter.OnItmCickListen
                 return false;
             }
         });
-
 
 
     }

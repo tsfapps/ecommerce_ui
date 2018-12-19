@@ -34,11 +34,5 @@
         android:id="@+id/mypager"
         android:layout_centerHorizontal="true"/>
 
-<TextView
-    android:layout_alignParentRight="true"
-    android:id="@+id/mainText"
-    android:text="@string/app_name"
-    android:layout_below="@+id/view"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content" />
+
 </RelativeLayout>

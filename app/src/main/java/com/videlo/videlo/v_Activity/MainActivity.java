@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity
     private SearchView searchView;
     private AdapterHome adapterHome;
     private List<ModelHome> homeList;
-   public TextView textViewMain;
+    public TextView textViewMain;
     //TabLayout
     TabLayout myTab;
     ViewPager myViewPager;
@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
         displayFragment(new Fragment());
 
-        textViewMain = findViewById(R.id.mainText);
+
         myTab = findViewById(R.id.view);
         myViewPager = findViewById(R.id.mypager);
         myViewPager.setAdapter(new MyOwnPagerAdapter(getSupportFragmentManager()));
@@ -269,7 +269,8 @@ public class MainActivity extends AppCompatActivity
                 return new PackagingFrag();
             }
             return null;
-            }
+        }
+
         @Override
         public int getCount() {
             return data.length;

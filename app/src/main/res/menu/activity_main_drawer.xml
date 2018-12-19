@@ -1,96 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
 
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
-      <!--  <item
-            android:id="@+id/nav_home"
-            android:icon="@drawable/ic_white_home"
-            android:title="@string/home" />
-        <item
-            android:id="@+id/nav_consumer"
-            android:icon="@drawable/ic_white_electronics"
-            android:title="@string/consumer_electronics" />
 
-        <item
-            android:id="@+id/nav_men"
-            android:icon="@drawable/ic_white_men_apparel"
-            android:title="@string/men_s_apparel" />
-        <item
-            android:id="@+id/nav_women"
-            android:icon="@drawable/ic_white_women_apparel"
-            android:title="@string/women_s_apparel" />
-        <item
-            android:id="@+id/nav_garden"
-            android:icon="@drawable/ic_white_pets"
-            android:title="@string/home_garden_and_pets" />
-
-        <item
-            android:id="@+id/nav_appliance"
-            android:icon="@drawable/ic_white_home_appliances"
-            android:title="@string/home_appliances" />
- <item
-     android:id="@+id/nav_personal"
-            android:icon="@drawable/ic_white_personal_care"
-            android:title="@string/personal_care_and_beauty" />
- <item
-     android:id="@+id/nav_jewellery"
-            android:icon="@drawable/ic_white_jewellery"
-            android:title="@string/jewellery" />
- <item
-     android:id="@+id/nav_watches"
-            android:icon="@drawable/ic_white_watch"
-            android:title="@string/watches" />
- <item
-     android:id="@+id/nav_bags"
-            android:icon="@drawable/ic_white_bag"
-            android:title="@string/bags_wallets_and_shoes" />
- <item
-     android:id="@+id/nav_computers"
-            android:icon="@drawable/ic_white_computer"
-            android:title="@string/computers_and_technologies" />
- <item
-     android:id="@+id/nav_babies"
-            android:icon="@drawable/ic_white_babies"
-            android:title="@string/babies_toys_and_kids" />
- <item
-     android:id="@+id/nav_sports"
-            android:icon="@drawable/ic_white_outdoors"
-            android:title="@string/sports_and_outdoors" />
- <item
-     android:id="@+id/nav_phone"
-            android:icon="@drawable/ic_white_phone"
-            android:title="@string/phone_and_accessories" />
- <item
-     android:id="@+id/nav_books"
-            android:icon="@drawable/ic_white_books"
-            android:title="@string/books_games_and_entertainment" />
- <item
-     android:id="@+id/nav_office"
-            android:icon="@drawable/ic_white_security"
-            android:title="@string/office_and_security" />
-        <item
-            android:id="@+id/nav_automobiles"
-            android:icon="@drawable/ic_white_automobiles"
-            android:title="@string/automobiles_and_motorcycles" />
-
-   <item
-       android:id="@+id/nav_agriculture"
-            android:icon="@drawable/ic_white_agriculture"
-            android:title="@string/agriculture_and_food" />
-
-   <item
-       android:id="@+id/nav_machinery"
-            android:icon="@drawable/ic_white_tools"
-            android:title="@string/machinery_hardware_and_tools" />
-
-   <item
-       android:id="@+id/nav_packaging"
-            android:icon="@drawable/ic_white_packaging"
-            android:title="@string/packaging_printing_and_advertising" />
--->
 
         <item
             android:id="@+id/nav_wishlist"

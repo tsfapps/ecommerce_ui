@@ -91,7 +91,6 @@ public class HomeFragment extends Fragment implements AdapterHome.OnHomeClkListe
         super.onCreate(savedInstanceState);
 
 
-
         setHasOptionsMenu(true);
     }
 
@@ -100,7 +99,6 @@ public class HomeFragment extends Fragment implements AdapterHome.OnHomeClkListe
                              Bundle savedInstanceState) {
 
         return inflater.inflate(R.layout.fragment_home, container, false);
-
 
 
     }
@@ -311,7 +309,6 @@ public class HomeFragment extends Fragment implements AdapterHome.OnHomeClkListe
                 return false;
             }
         });
-
 
 
     }

@@ -49,11 +49,6 @@ public class JewelleryFrag extends Fragment implements VideloAdapter.OnItmCickLi
     private String urlLink;
 
 
-
-
-
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -68,7 +63,7 @@ public class JewelleryFrag extends Fragment implements VideloAdapter.OnItmCickLi
 
         recyclerView = view.findViewById(R.id.recyclerViewMain);
         recyclerView = view.findViewById(R.id.recyclerViewMain);
-        layoutManager = new GridLayoutManager(getContext(),2);
+        layoutManager = new GridLayoutManager(getContext(), 2);
         recyclerView.setLayoutManager(layoutManager);
 
         jewellery();
@@ -76,7 +71,7 @@ public class JewelleryFrag extends Fragment implements VideloAdapter.OnItmCickLi
     }
 
 
-    public void jewellery (){
+    public void jewellery() {
 
         Api api = ApiClient.getApiClient().create(Api.class);
         Call<List<VideloModel>> listCall = api.getJewellery();
@@ -94,7 +89,7 @@ public class JewelleryFrag extends Fragment implements VideloAdapter.OnItmCickLi
             @Override
             public void onFailure(Call<List<VideloModel>> call, Throwable t) {
 
-                Toast.makeText(getContext(),"faill",Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(), "faill", Toast.LENGTH_LONG).show();
 
             }
         });
@@ -106,9 +101,9 @@ public class JewelleryFrag extends Fragment implements VideloAdapter.OnItmCickLi
     public void OnItmClk(int pos) {
         VideloModel getItemClicked = videloModelList.get(pos);
 
-        Intent i = new Intent(getContext(),VideloActivity.class);
+        Intent i = new Intent(getContext(), VideloActivity.class);
         Bundle b = new Bundle();
-        b.putString(BASE_URL,getItemClicked.getUrl());
+        b.putString(BASE_URL, getItemClicked.getUrl());
         i.putExtras(b);
         startActivity(i);
     }
@@ -119,6 +114,7 @@ public class JewelleryFrag extends Fragment implements VideloAdapter.OnItmCickLi
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
     }
+
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
@@ -151,7 +147,6 @@ public class JewelleryFrag extends Fragment implements VideloAdapter.OnItmCickLi
                 return false;
             }
         });
-
 
 
     }

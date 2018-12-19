@@ -61,13 +61,13 @@ public class WomenFrag extends Fragment implements VideloAdapter.OnItmCickListen
 
         recyclerView = view.findViewById(R.id.recyclerViewMain);
         recyclerView = view.findViewById(R.id.recyclerViewMain);
-        layoutManager = new GridLayoutManager(getContext(),2);
+        layoutManager = new GridLayoutManager(getContext(), 2);
         recyclerView.setLayoutManager(layoutManager);
 
-        womenDetails ();
+        womenDetails();
     }
 
-    public void womenDetails (){
+    public void womenDetails() {
 
         Api api = ApiClient.getApiClient().create(Api.class);
         Call<List<VideloModel>> listCall = api.getWomen();
@@ -85,7 +85,7 @@ public class WomenFrag extends Fragment implements VideloAdapter.OnItmCickListen
             @Override
             public void onFailure(Call<List<VideloModel>> call, Throwable t) {
 
-                Toast.makeText(getContext(),"faill",Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(), "faill", Toast.LENGTH_LONG).show();
 
             }
         });
@@ -93,14 +93,12 @@ public class WomenFrag extends Fragment implements VideloAdapter.OnItmCickListen
     }
 
 
-
-
     @Override
     public void OnItmClk(int pos) {
         VideloModel getItemClicked = videloModelList.get(pos);
-        Intent i = new Intent(getContext(),VideloActivity.class);
+        Intent i = new Intent(getContext(), VideloActivity.class);
         Bundle b = new Bundle();
-        b.putString(BASE_URL,getItemClicked.getUrl());
+        b.putString(BASE_URL, getItemClicked.getUrl());
         i.putExtras(b);
         startActivity(i);
     }
@@ -111,6 +109,7 @@ public class WomenFrag extends Fragment implements VideloAdapter.OnItmCickListen
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
     }
+
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
@@ -143,7 +142,6 @@ public class WomenFrag extends Fragment implements VideloAdapter.OnItmCickListen
                 return false;
             }
         });
-
 
 
     }

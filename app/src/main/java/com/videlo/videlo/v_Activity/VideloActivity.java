@@ -35,28 +35,27 @@ public class VideloActivity extends AppCompatActivity {
         if (isNetworkConnecting(VideloActivity.this)) {
             webView.setWebViewClient(new myWebViewClient());
             webView.loadUrl(videloUrl);
-        }
-        else {
+        } else {
             webView.setVisibility(View.GONE);
             textViewNetwork.setText("Check the network...");
             textViewNetwork.setVisibility(View.VISIBLE);
         }
 
 
-
     }
-    private boolean isNetworkConnecting (Context context){
-        ConnectivityManager connectivityManager =  (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-        if(connectivityManager != null){
+
+    private boolean isNetworkConnecting(Context context) {
+        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (connectivityManager != null) {
             NetworkInfo[] networkInfos = connectivityManager.getAllNetworkInfo();
             if (networkInfos != null)
 
-                for (int i= 0; i<networkInfos.length; i++)
-                    if (networkInfos[i].getState()== NetworkInfo.State.CONNECTED ){
+                for (int i = 0; i < networkInfos.length; i++)
+                    if (networkInfos[i].getState() == NetworkInfo.State.CONNECTED) {
 
                         return true;
                     }
-                }
+        }
 
         return false;
 
@@ -75,9 +74,9 @@ public class VideloActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        if (webView.canGoBack()){
+        if (webView.canGoBack()) {
             webView.goBack();
-        }else {
+        } else {
             super.onBackPressed();
         }
 

@@ -95,15 +95,13 @@ public class PhoneFrag extends Fragment implements VideloAdapter.OnItmCickListen
     }
 
 
-
-
     @Override
     public void OnItmClk(int pos) {
         VideloModel getItemClicked = videloModelList.get(pos);
 
-        Intent i = new Intent(getContext(),VideloActivity.class);
+        Intent i = new Intent(getContext(), VideloActivity.class);
         Bundle b = new Bundle();
-        b.putString(BASE_URL,getItemClicked.getUrl());
+        b.putString(BASE_URL, getItemClicked.getUrl());
         i.putExtras(b);
         startActivity(i);
     }
@@ -113,6 +111,7 @@ public class PhoneFrag extends Fragment implements VideloAdapter.OnItmCickListen
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
     }
+
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
@@ -145,7 +144,6 @@ public class PhoneFrag extends Fragment implements VideloAdapter.OnItmCickListen
                 return false;
             }
         });
-
 
 
     }

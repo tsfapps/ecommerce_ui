@@ -48,11 +48,6 @@ public class PersonalFrag extends Fragment implements VideloAdapter.OnItmCickLis
     private String urlLink;
 
 
-
-
-
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -67,7 +62,7 @@ public class PersonalFrag extends Fragment implements VideloAdapter.OnItmCickLis
 
         recyclerView = view.findViewById(R.id.recyclerViewMain);
         recyclerView = view.findViewById(R.id.recyclerViewMain);
-        layoutManager = new GridLayoutManager(getContext(),2);
+        layoutManager = new GridLayoutManager(getContext(), 2);
         recyclerView.setLayoutManager(layoutManager);
 
         personal();
@@ -75,7 +70,7 @@ public class PersonalFrag extends Fragment implements VideloAdapter.OnItmCickLis
     }
 
 
-    public void personal (){
+    public void personal() {
 
         Api api = ApiClient.getApiClient().create(Api.class);
         Call<List<VideloModel>> listCall = api.getPersonal();
@@ -93,7 +88,7 @@ public class PersonalFrag extends Fragment implements VideloAdapter.OnItmCickLis
             @Override
             public void onFailure(Call<List<VideloModel>> call, Throwable t) {
 
-                Toast.makeText(getContext(),"faill",Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(), "faill", Toast.LENGTH_LONG).show();
 
             }
         });
@@ -105,9 +100,9 @@ public class PersonalFrag extends Fragment implements VideloAdapter.OnItmCickLis
     public void OnItmClk(int pos) {
         VideloModel getItemClicked = videloModelList.get(pos);
 
-        Intent i = new Intent(getContext(),VideloActivity.class);
+        Intent i = new Intent(getContext(), VideloActivity.class);
         Bundle b = new Bundle();
-        b.putString(BASE_URL,getItemClicked.getUrl());
+        b.putString(BASE_URL, getItemClicked.getUrl());
         i.putExtras(b);
         startActivity(i);
     }
@@ -118,6 +113,7 @@ public class PersonalFrag extends Fragment implements VideloAdapter.OnItmCickLis
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
     }
+
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
@@ -150,7 +146,6 @@ public class PersonalFrag extends Fragment implements VideloAdapter.OnItmCickLis
                 return false;
             }
         });
-
 
 
     }
