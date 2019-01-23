@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:fillViewport="true"
+    tools:context=".v_Fragment.FlashSale">
+
+    <!-- TODO: Update blank fragment layout -->
+
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:textSize="18dp"
+        android:textStyle="bold"
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="RM 9.99" />
+
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:id="@+id/recyclerViewMain"
+        android:layout_height="wrap_content">
+
+    </android.support.v7.widget.RecyclerView>
+
+
+    <TextView
+        android:id="@+id/tvi"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:layout_below="@+id/recyclerViewMain"
+        android:layout_marginTop="0dp"
+        android:gravity="center"
+        android:text="RM 49.9"
+        android:textSize="18dp"
+        android:textStyle="bold" />
+
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_below="@+id/tvi"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:id="@+id/recyclerViewMaint"
+        android:layout_height="wrap_content">
+
+    </android.support.v7.widget.RecyclerView>
+
+
+    <TextView
+        android:layout_below="@+id/recyclerViewMaint"
+        android:gravity="center"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        android:id="@+id/tvii"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="RM 99.99" />
+
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_below="@+id/tvii"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:id="@+id/recyclerViewMainthree"
+        android:layout_height="wrap_content">
+
+    </android.support.v7.widget.RecyclerView>
+
+
+</RelativeLayout>
+</ScrollView>

@@ -1,9 +1,9 @@
 package com.videlo.videlo.v_Fragment;
 
-
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -24,6 +24,7 @@ import com.videlo.videlo.ApiClient;
 import com.videlo.videlo.R;
 import com.videlo.videlo.v_Activity.VideloActivity;
 import com.videlo.videlo.v_Adapter.VideloAdapter;
+import com.videlo.videlo.v_Adapter.VideloAdaptert;
 import com.videlo.videlo.v_model.VideloModel;
 
 import java.util.ArrayList;
@@ -34,22 +35,30 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 
+public class FlashSale extends Fragment implements VideloAdaptert.OnItmCickListener {
 
-public class AgricultureFrag extends Fragment implements VideloAdapter.OnItmCickListener {
 
-
-    private static final String BASE_URL = "base_url";
     private RecyclerView recyclerView;
-    private RecyclerView.LayoutManager layoutManager;
-    private VideloAdapter videloAdapter;
-    private List<VideloModel> videloModelList;
 
+    private RecyclerView.LayoutManager layoutManager;
+    private VideloAdaptert videloAdaptert;
+    private List<VideloModel> videloModelList;
+    private static final String BASE_URL = "base_url";
+    private String urlLink;
+
+
+    private RecyclerView recyclerViewtwo;
+    private RecyclerView.LayoutManager layoutManagertwo;
+
+
+    private RecyclerView recyclerViewththee;
+    private RecyclerView.LayoutManager layoutManagerthree;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.agriculture_frag, container, false);
+        return inflater.inflate(R.layout.fragment_flash_sale, container, false);
     }
 
 
@@ -57,33 +66,51 @@ public class AgricultureFrag extends Fragment implements VideloAdapter.OnItmCick
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+
         recyclerView = view.findViewById(R.id.recyclerViewMain);
-        layoutManager = new GridLayoutManager(getContext(), 2);
+        layoutManager =new GridLayoutManager(getContext(), 2, GridLayoutManager.HORIZONTAL, false);
+     //   layoutManager.setMeasuredDimension(40,40);
         recyclerView.setLayoutManager(layoutManager);
 
-        agricultureShow();
+// second recyclerviw
+        recyclerViewtwo = view.findViewById(R.id.recyclerViewMaint);
+        layoutManagertwo = new GridLayoutManager(getContext(), 2, GridLayoutManager.HORIZONTAL, false);
+        recyclerViewtwo.setLayoutManager(layoutManagertwo);
 
+
+        // rcv three
+
+        recyclerViewththee = view.findViewById(R.id.recyclerViewMainthree);
+        layoutManagerthree = new GridLayoutManager(getContext(), 2, GridLayoutManager.HORIZONTAL, false);
+        recyclerViewththee.setLayoutManager(layoutManagerthree);
+
+
+        phoneShow();
+
+        rmm();
+        rcvthre();
     }
 
-    public void agricultureShow() {
+
+    public void phoneShow() {
 
         Api api = ApiClient.getApiClient().create(Api.class);
-        Call<List<VideloModel>> listCall = api.getAgriculture();
+        Call<List<VideloModel>> listCall = api.getPhone();
 
         listCall.enqueue(new Callback<List<VideloModel>>() {
             @Override
             public void onResponse(Call<List<VideloModel>> call, Response<List<VideloModel>> response) {
 
                 videloModelList = response.body();
-                videloAdapter = new VideloAdapter(getContext(), videloModelList);
-                recyclerView.setAdapter(videloAdapter);
-                videloAdapter.setOnItmClkListener(AgricultureFrag.this);
+                videloAdaptert = new VideloAdaptert(getContext(), videloModelList);
+                recyclerView.setAdapter(videloAdaptert);
+               videloAdaptert.setOnItmClkListener(FlashSale.this);
             }
 
             @Override
             public void onFailure(Call<List<VideloModel>> call, Throwable t) {
 
-                Toast.makeText(getContext(), "fail", Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(), "faill", Toast.LENGTH_LONG).show();
 
             }
         });
@@ -91,22 +118,70 @@ public class AgricultureFrag extends Fragment implements VideloAdapter.OnItmCick
     }
 
 
-    @Override
-    public void OnItmClk(int pos) {
+    public void rmm() {
 
-        VideloModel getItemClicked = videloModelList.get(pos);
+        Api api = ApiClient.getApiClient().create(Api.class);
+        Call<List<VideloModel>> listCall = api.getPhone();
 
+        listCall.enqueue(new Callback<List<VideloModel>>() {
+            @Override
+            public void onResponse(Call<List<VideloModel>> call, Response<List<VideloModel>> response) {
 
-        Intent intentAgriculture = new Intent(getContext(), VideloActivity.class);
-        Bundle bundle = new Bundle();
+                videloModelList = response.body();
+                videloAdaptert = new VideloAdaptert(getContext(), videloModelList);
+                recyclerViewtwo.setAdapter(videloAdaptert);
+                videloAdaptert.setOnItmClkListener(FlashSale.this);
+            }
 
-        bundle.putString(BASE_URL, getItemClicked.getUrl());
+            @Override
+            public void onFailure(Call<List<VideloModel>> call, Throwable t) {
 
-        intentAgriculture.putExtras(bundle);
+                Toast.makeText(getContext(), "faill", Toast.LENGTH_LONG).show();
 
-        startActivity(intentAgriculture);
+            }
+        });
+
     }
 
+
+    public void rcvthre() {
+
+        Api api = ApiClient.getApiClient().create(Api.class);
+        Call<List<VideloModel>> listCall = api.getPhone();
+
+        listCall.enqueue(new Callback<List<VideloModel>>() {
+            @Override
+            public void onResponse(Call<List<VideloModel>> call, Response<List<VideloModel>> response) {
+
+                videloModelList = response.body();
+                videloAdaptert = new VideloAdaptert(getContext(), videloModelList);
+                recyclerViewththee.setAdapter(videloAdaptert);
+                videloAdaptert.setOnItmClkListener(FlashSale.this);
+            }
+
+            @Override
+            public void onFailure(Call<List<VideloModel>> call, Throwable t) {
+
+                Toast.makeText(getContext(), "faill", Toast.LENGTH_LONG).show();
+
+            }
+        });
+
+    }
+
+
+
+
+    @Override
+    public void OnItmClk(int pos) {
+        VideloModel getItemClicked = videloModelList.get(pos);
+
+        Intent i = new Intent(getContext(), VideloActivity.class);
+        Bundle b = new Bundle();
+        b.putString(BASE_URL, getItemClicked.getUrl());
+        i.putExtras(b);
+        startActivity(i);
+    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -142,7 +217,7 @@ public class AgricultureFrag extends Fragment implements VideloAdapter.OnItmCick
                         myList.add(model);
                     }
                 }
-                videloAdapter.filterItem(myList);
+                videloAdaptert.filterItem(myList);
                 return false;
             }
         });

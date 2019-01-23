@@ -20,7 +20,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:padding="5dp"
-        android:text= "Beauty Care"
+        android:text="Grab all the cool stuff  "
         android:textColor="@color/design_default_color_primary"
         android:textSize="15dp"
 

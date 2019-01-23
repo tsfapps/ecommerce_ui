@@ -44,9 +44,6 @@ import java.util.TimerTask;
 import me.relex.circleindicator.CircleIndicator;
 
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class HomeFragment extends Fragment implements AdapterHome.OnHomeClkListener, AdapterHomeTwo.ProdictClick {
     private String HOME_URL = "base_url";
     private String homeUrl = "https://videlo.com.my/";
@@ -83,7 +80,8 @@ public class HomeFragment extends Fragment implements AdapterHome.OnHomeClkListe
     private CollapsingToolbarLayout collapsingToolbar;
 
     public HomeFragment() {
-        // Required empty public constructor
+
+
     }
 
     @Override
@@ -168,7 +166,7 @@ public class HomeFragment extends Fragment implements AdapterHome.OnHomeClkListe
         modelHomes = new ArrayList<>();
         //   recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
 
-        layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
+        layoutManager =  new GridLayoutManager(getContext(), 2, GridLayoutManager.HORIZONTAL, false);
         recyclerView.setLayoutManager(layoutManager);
 
         adapterHome = new AdapterHome(getContext(), modelHomes);
@@ -180,7 +178,7 @@ public class HomeFragment extends Fragment implements AdapterHome.OnHomeClkListe
 
     private void mainViewTwo() {
         modelHomeTwos = new ArrayList<>();
-        layoutManagerTwo = new GridLayoutManager(getContext(), 2);
+        layoutManagerTwo =  new GridLayoutManager(getContext(), 2, GridLayoutManager.HORIZONTAL, false);
         recyclerViewTwo.setLayoutManager(layoutManagerTwo);
         adapterHomeTwo = new AdapterHomeTwo(modelHomeTwos, getContext());
         recyclerViewTwo.setAdapter(adapterHomeTwo);

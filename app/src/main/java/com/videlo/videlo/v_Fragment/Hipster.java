@@ -1,9 +1,9 @@
 package com.videlo.videlo.v_Fragment;
 
-
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -34,22 +34,27 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 
+public class Hipster extends Fragment implements VideloAdapter.OnItmCickListener {
 
-public class AgricultureFrag extends Fragment implements VideloAdapter.OnItmCickListener {
 
-
-    private static final String BASE_URL = "base_url";
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
     private VideloAdapter videloAdapter;
     private List<VideloModel> videloModelList;
+    private static final String BASE_URL = "base_url";
+    private String urlLink;
+
+
+
+
+
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.agriculture_frag, container, false);
+        return inflater.inflate(R.layout.fragment_hipster, container, false);
     }
 
 
@@ -58,17 +63,19 @@ public class AgricultureFrag extends Fragment implements VideloAdapter.OnItmCick
         super.onViewCreated(view, savedInstanceState);
 
         recyclerView = view.findViewById(R.id.recyclerViewMain);
-        layoutManager = new GridLayoutManager(getContext(), 2);
+        recyclerView = view.findViewById(R.id.recyclerViewMain);
+        layoutManager = new GridLayoutManager(getContext(),2);
         recyclerView.setLayoutManager(layoutManager);
 
-        agricultureShow();
+        officeFrag();
 
     }
 
-    public void agricultureShow() {
+
+    public void officeFrag (){
 
         Api api = ApiClient.getApiClient().create(Api.class);
-        Call<List<VideloModel>> listCall = api.getAgriculture();
+        Call<List<VideloModel>> listCall = api.getOffice();
 
         listCall.enqueue(new Callback<List<VideloModel>>() {
             @Override
@@ -77,13 +84,13 @@ public class AgricultureFrag extends Fragment implements VideloAdapter.OnItmCick
                 videloModelList = response.body();
                 videloAdapter = new VideloAdapter(getContext(), videloModelList);
                 recyclerView.setAdapter(videloAdapter);
-                videloAdapter.setOnItmClkListener(AgricultureFrag.this);
+                videloAdapter.setOnItmClkListener(Hipster.this);
             }
 
             @Override
             public void onFailure(Call<List<VideloModel>> call, Throwable t) {
 
-                Toast.makeText(getContext(), "fail", Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(),"faill",Toast.LENGTH_LONG).show();
 
             }
         });
@@ -91,29 +98,25 @@ public class AgricultureFrag extends Fragment implements VideloAdapter.OnItmCick
     }
 
 
+
+
+
     @Override
     public void OnItmClk(int pos) {
-
         VideloModel getItemClicked = videloModelList.get(pos);
 
-
-        Intent intentAgriculture = new Intent(getContext(), VideloActivity.class);
-        Bundle bundle = new Bundle();
-
-        bundle.putString(BASE_URL, getItemClicked.getUrl());
-
-        intentAgriculture.putExtras(bundle);
-
-        startActivity(intentAgriculture);
+        Intent i = new Intent(getContext(),VideloActivity.class);
+        Bundle b = new Bundle();
+        b.putString(BASE_URL,getItemClicked.getUrl());
+        i.putExtras(b);
+        startActivity(i);
     }
-
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
     }
-
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
@@ -146,6 +149,7 @@ public class AgricultureFrag extends Fragment implements VideloAdapter.OnItmCick
                 return false;
             }
         });
+
 
 
     }

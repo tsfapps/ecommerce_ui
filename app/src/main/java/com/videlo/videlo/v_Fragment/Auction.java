@@ -1,9 +1,9 @@
 package com.videlo.videlo.v_Fragment;
 
-
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -34,8 +34,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 
-
-public class AgricultureFrag extends Fragment implements VideloAdapter.OnItmCickListener {
+public class Auction extends Fragment implements VideloAdapter.OnItmCickListener {
 
 
     private static final String BASE_URL = "base_url";
@@ -49,7 +48,7 @@ public class AgricultureFrag extends Fragment implements VideloAdapter.OnItmCick
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.agriculture_frag, container, false);
+        return inflater.inflate(R.layout.fragment_auction, container, false);
     }
 
 
@@ -77,7 +76,7 @@ public class AgricultureFrag extends Fragment implements VideloAdapter.OnItmCick
                 videloModelList = response.body();
                 videloAdapter = new VideloAdapter(getContext(), videloModelList);
                 recyclerView.setAdapter(videloAdapter);
-                videloAdapter.setOnItmClkListener(AgricultureFrag.this);
+                videloAdapter.setOnItmClkListener(Auction.this);
             }
 
             @Override

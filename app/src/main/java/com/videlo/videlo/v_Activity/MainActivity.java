@@ -12,6 +12,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
+import android.widget.ImageView;
 import android.widget.SearchView;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -26,13 +27,17 @@ import android.widget.Toast;
 
 import com.videlo.videlo.v_Adapter.AdapterHome;
 import com.videlo.videlo.v_Fragment.AgricultureFrag;
+import com.videlo.videlo.v_Fragment.Auction;
+import com.videlo.videlo.v_Fragment.Delomart;
 import com.videlo.videlo.v_Fragment.ElectronicsFrag;
 import com.videlo.videlo.v_Fragment.AutomobilesFrag;
 import com.videlo.videlo.v_Fragment.BabiesFrag;
 import com.videlo.videlo.v_Fragment.BagsFrag;
 import com.videlo.videlo.v_Fragment.BooksFrag;
 import com.videlo.videlo.v_Fragment.ComputersFrag;
+import com.videlo.videlo.v_Fragment.FlashSale;
 import com.videlo.videlo.v_Fragment.GardenFrag;
+import com.videlo.videlo.v_Fragment.Hipster;
 import com.videlo.videlo.v_Fragment.HomeFragment;
 import com.videlo.videlo.v_Fragment.ConsumerFrag;
 import com.videlo.videlo.R;
@@ -53,6 +58,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
+
     private String CART_URL = "base_url";
     private SearchView searchView;
     private AdapterHome adapterHome;
@@ -62,13 +68,16 @@ public class MainActivity extends AppCompatActivity
     TabLayout myTab;
     ViewPager myViewPager;
 
+    private ImageView ImageFirst,ImgB,ImgC,ImgD;
+
     final int[] icons = {R.drawable.ic_white_home, R.drawable.ic_white_electronics, R.drawable.ic_white_men_apparel,
             R.drawable.ic_white_women_apparel, R.drawable.ic_white_pets, R.drawable.ic_white_home_appliances,
             R.drawable.ic_white_personal_care, R.drawable.ic_white_jewellery, R.drawable.ic_white_watch,
             R.drawable.ic_white_bag, R.drawable.ic_white_computer, R.drawable.ic_white_babies,
             R.drawable.ic_white_outdoors, R.drawable.ic_white_phone, R.drawable.ic_white_books,
             R.drawable.ic_white_security, R.drawable.ic_white_automobiles, R.drawable.ic_white_agriculture,
-            R.drawable.ic_white_tools, R.drawable.ic_white_packaging};
+            R.drawable.ic_white_tools, R.drawable.ic_white_packaging , R.drawable.ic_white_outdoors,
+            R.drawable.ic_white_outdoors, R.drawable.ic_filter_vintage_black_24dp ,R.drawable.ic_white_electronics};
 
     @SuppressLint("ResourceAsColor")
     @Override
@@ -152,6 +161,94 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+      //  navigationView.inflateHeaderView(R.layout.nav_header_main);
+
+
+
+        View ImageFirst = navigationView.getHeaderView(0);
+        ImageFirst = (ImageView) ImageFirst.findViewById(R.id.imgA);
+
+        View ImgB = navigationView.getHeaderView(0);
+        ImgB  = (ImageView) ImgB.findViewById(R.id.imgB);
+
+
+        View ImgC = navigationView.getHeaderView(0);
+        ImgC  = (ImageView) ImgC.findViewById(R.id.imgC);
+
+
+        View ImgD = navigationView.getHeaderView(0);
+        ImgD  = (ImageView) ImgD.findViewById(R.id.imgD);
+
+        ImageFirst.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Toast.makeText(getApplicationContext(),"Payment",Toast.LENGTH_LONG).show();
+
+                String url = "https://www.videlo.com.my/wishlist/";
+                Intent intent4 = new Intent(MainActivity.this, VideloActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString(CART_URL, url);
+                intent4.putExtras(bundle);
+                startActivity(intent4);
+
+            }
+        });
+
+
+        ImgB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Toast.makeText(getApplicationContext(),"Status",Toast.LENGTH_LONG).show();
+
+                String url = "https://www.videlo.com.my/wishlist/";
+                Intent intent4 = new Intent(MainActivity.this, VideloActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString(CART_URL, url);
+                intent4.putExtras(bundle);
+                startActivity(intent4);
+
+            }
+        });
+
+
+
+        ImgC.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Toast.makeText(getApplicationContext(),"Cart",Toast.LENGTH_LONG).show();
+
+                String url = "https://www.videlo.com.my/order-tracking/";
+                Intent intent4 = new Intent(MainActivity.this, VideloActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString(CART_URL, url);
+                intent4.putExtras(bundle);
+                startActivity(intent4);
+
+            }
+        });
+
+
+
+        ImgD.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Toast.makeText(getApplicationContext(),"Return",Toast.LENGTH_LONG).show();
+
+                String url = "https://www.videlo.com.my/contact/";
+                Intent intent4 = new Intent(MainActivity.this, VideloActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString(CART_URL, url);
+                intent4.putExtras(bundle);
+                startActivity(intent4);
+
+            }
+        });
+
+
     }
 
 
@@ -172,10 +269,10 @@ public class MainActivity extends AppCompatActivity
 
     class MyOwnPagerAdapter extends FragmentPagerAdapter {
 
-        String data[] = {getString(R.string.home), "Electronics", "Men's", "Women's", "Garden & Pets ",
+        String data[] = {getString(R.string.home), "Flash Sale", "Men's", "Women's", "Garden & Pets ",
                 "Home Appliance", "Beauty Care", "Jewellery", "watches", "Bags & Shoes", "Computer Tech", "Baby Toys",
                 "Sports", "phone", "Books Game", "Office Security", "Automobile", "Agriculture", "Machinery",
-                "Advertising"};
+                "Advertising","Action","Delomart","Hipster","Electronics"};
 
 
         public MyOwnPagerAdapter(FragmentManager fm) {
@@ -191,7 +288,7 @@ public class MainActivity extends AppCompatActivity
             }
 
 
-            if (position == 1) {
+            if (position == 23) {
 
                 return new ConsumerFrag();
 
@@ -268,6 +365,35 @@ public class MainActivity extends AppCompatActivity
 
                 return new PackagingFrag();
             }
+
+
+            if (position == 20) {
+
+                return new Auction();
+
+            }
+
+
+
+            if (position == 21) {
+
+                return new Delomart();
+
+            }
+
+            if (position == 22) {
+
+                return new Hipster();
+
+            }
+
+
+            if (position == 1) {
+
+                return new FlashSale();
+
+            }
+
             return null;
         }
 

@@ -24,9 +24,4 @@ public class ApiClient {
         }
         return retrofit;
     }
-
-
-
-
-
 }
